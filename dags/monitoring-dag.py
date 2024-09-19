@@ -94,7 +94,10 @@ def _data_drift_detected(**context):
     data_drift_report.run(current_data=data_logs, reference_data=reference, column_mapping=None)
     ws.add_report(project.id, data_drift_report, include_data=True)
 
+
 def _clean_file(**context):
+    """Use it optionally if you want to remove the file you just added
+    """
     data_logs_filename = context["task_instance"].xcom_pull(key="data_logs_filename")
     os.remove(data_logs_filename)
 
@@ -109,7 +112,7 @@ with DAG(dag_id="monitoring_dag", default_args=default_args, schedule_interval="
     detect_data_drift = BranchPythonOperator(task_id="detect_data_drift", python_callable=_detect_data_drift)
     data_drift_detected = PythonOperator(task_id="data_drift_detected", python_callable=_data_drift_detected)
     no_data_drift_detected = DummyOperator(task_id="no_data_drift_detected")
-    clean_file = PythonOperator(task_id="clean_file", python_callable=_clean_file, trigger_rule="one_success")
+    clean_file = PythonOperator(task_id="clean_file", python_callable=_clean_file, trigger_rule="one_success") # This line hasn't been added to the DAG. If you want to, you definitely can. It will remove the last file you added to the `data-drift` directory`
     end = DummyOperator(task_id="end")
 
-    detect_file >> detect_data_drift >> [data_drift_detected, no_data_drift_detected] >> clean_file >> end
+    detect_file >> detect_data_drift >> [data_drift_detected, no_data_drift_detected] >> end
