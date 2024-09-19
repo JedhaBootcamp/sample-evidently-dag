@@ -1,0 +1,24 @@
+[2024-01-24 15:25:35,199] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: monitoring_dag.detect_file manual__2024-01-24T15:25:33.618086+00:00 [queued]>
+[2024-01-24 15:25:35,205] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: monitoring_dag.detect_file manual__2024-01-24T15:25:33.618086+00:00 [queued]>
+[2024-01-24 15:25:35,205] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-24 15:25:35,206] {taskinstance.py:1357} INFO - Starting attempt 1 of 6
+[2024-01-24 15:25:35,206] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-24 15:25:35,214] {taskinstance.py:1377} INFO - Executing <Task(PythonSensor): detect_file> on 2024-01-24 15:25:33.618086+00:00
+[2024-01-24 15:25:35,219] {standard_task_runner.py:52} INFO - Started process 530 to run task
+[2024-01-24 15:25:35,221] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'monitoring_dag', 'detect_file', 'manual__2024-01-24T15:25:33.618086+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/monitoring-dag.py', '--cfg-path', '/tmp/tmpl1zj5b9i', '--error-file', '/tmp/tmpdirpllrb']
+[2024-01-24 15:25:35,222] {standard_task_runner.py:80} INFO - Job 20: Subtask detect_file
+[2024-01-24 15:25:35,259] {task_command.py:370} INFO - Running <TaskInstance: monitoring_dag.detect_file manual__2024-01-24T15:25:33.618086+00:00 [running]> on host 7aa566990013
+[2024-01-24 15:25:35,306] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=monitoring_dag
+AIRFLOW_CTX_TASK_ID=detect_file
+AIRFLOW_CTX_EXECUTION_DATE=2024-01-24T15:25:33.618086+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-01-24T15:25:33.618086+00:00
+[2024-01-24 15:25:35,307] {python.py:66} INFO - Poking callable: <function _detect_file at 0x7fae754bb0e0>
+[2024-01-24 15:25:35,318] {base.py:301} INFO - Success criteria met. Exiting.
+[2024-01-24 15:25:35,344] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=monitoring_dag, task_id=detect_file, execution_date=20240124T152533, start_date=20240124T152535, end_date=20240124T152535
+[2024-01-24 15:25:35,394] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-01-24 15:25:35,440] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

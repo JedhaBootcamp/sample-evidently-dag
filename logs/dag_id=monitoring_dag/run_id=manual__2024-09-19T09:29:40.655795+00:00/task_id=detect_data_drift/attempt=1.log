@@ -1,0 +1,48 @@
+[2024-09-19T09:29:44.556+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-09-19T09:29:44.562+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monitoring_dag.detect_data_drift manual__2024-09-19T09:29:40.655795+00:00 [queued]>
+[2024-09-19T09:29:44.565+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monitoring_dag.detect_data_drift manual__2024-09-19T09:29:40.655795+00:00 [queued]>
+[2024-09-19T09:29:44.565+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-09-19T09:29:44.569+0000] {taskinstance.py:2888} INFO - Executing <Task(BranchPythonOperator): detect_data_drift> on 2024-09-19 09:29:40.655795+00:00
+[2024-09-19T09:29:44.573+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=432) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-19T09:29:44.573+0000] {standard_task_runner.py:72} INFO - Started process 447 to run task
+[2024-09-19T09:29:44.574+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'monitoring_dag', 'detect_data_drift', 'manual__2024-09-19T09:29:40.655795+00:00', '--job-id', '65', '--raw', '--subdir', 'DAGS_FOLDER/monitoring-dag.py', '--cfg-path', '/tmp/tmpvatxs0xd']
+[2024-09-19T09:29:44.575+0000] {standard_task_runner.py:105} INFO - Job 65: Subtask detect_data_drift
+[2024-09-19T09:29:44.593+0000] {task_command.py:467} INFO - Running <TaskInstance: monitoring_dag.detect_data_drift manual__2024-09-19T09:29:40.655795+00:00 [running]> on host d2d815eb1dcc
+[2024-09-19T09:29:44.622+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monitoring_dag' AIRFLOW_CTX_TASK_ID='detect_data_drift' AIRFLOW_CTX_EXECUTION_DATE='2024-09-19T09:29:40.655795+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-19T09:29:40.655795+00:00'
+[2024-09-19T09:29:44.623+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-09-19T09:29:44.628+0000] {baseoperator.py:405} WARNING - BranchPythonOperator.execute cannot be called outside TaskInstance!
+[2024-09-19T09:29:44.644+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+
+[2024-09-19T09:29:44.645+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+
+[2024-09-19T09:29:44.645+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+
+[2024-09-19T09:29:44.646+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+
+[2024-09-19T09:29:44.787+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+
+[2024-09-19T09:29:44.788+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+
+[2024-09-19T09:29:44.788+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+
+[2024-09-19T09:29:44.789+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+
+[2024-09-19T09:29:44.814+0000] {python.py:240} INFO - Done. Returned value was: data_drift_detected
+[2024-09-19T09:29:44.814+0000] {branch.py:38} INFO - Branch into data_drift_detected
+[2024-09-19T09:29:44.814+0000] {skipmixin.py:230} INFO - Following branch ('data_drift_detected',)
+[2024-09-19T09:29:44.818+0000] {skipmixin.py:278} INFO - Skipping tasks [('no_data_drift_detected', -1)]
+[2024-09-19T09:29:44.829+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-09-19T09:29:44.829+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=monitoring_dag, task_id=detect_data_drift, run_id=manual__2024-09-19T09:29:40.655795+00:00, execution_date=20240919T092940, start_date=20240919T092944, end_date=20240919T092944
+[2024-09-19T09:29:44.839+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-09-19T09:29:44.850+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-09-19T09:29:44.850+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

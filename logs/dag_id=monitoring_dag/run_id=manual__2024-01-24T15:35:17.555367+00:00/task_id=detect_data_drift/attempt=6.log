@@ -1,0 +1,52 @@
+[2024-01-24 15:40:30,112] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:35:17.555367+00:00 [queued]>
+[2024-01-24 15:40:30,120] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:35:17.555367+00:00 [queued]>
+[2024-01-24 15:40:30,121] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-24 15:40:30,121] {taskinstance.py:1357} INFO - Starting attempt 6 of 6
+[2024-01-24 15:40:30,121] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-24 15:40:30,133] {taskinstance.py:1377} INFO - Executing <Task(BranchPythonOperator): detect_data_drift> on 2024-01-24 15:35:17.555367+00:00
+[2024-01-24 15:40:30,138] {standard_task_runner.py:52} INFO - Started process 1386 to run task
+[2024-01-24 15:40:30,141] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'monitoring_dag', 'detect_data_drift', 'manual__2024-01-24T15:35:17.555367+00:00', '--job-id', '65', '--raw', '--subdir', 'DAGS_FOLDER/monitoring-dag.py', '--cfg-path', '/tmp/tmpni2isqfr', '--error-file', '/tmp/tmptjp_xflk']
+[2024-01-24 15:40:30,143] {standard_task_runner.py:80} INFO - Job 65: Subtask detect_data_drift
+[2024-01-24 15:40:30,189] {task_command.py:370} INFO - Running <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:35:17.555367+00:00 [running]> on host 7aa566990013
+[2024-01-24 15:40:30,244] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=monitoring_dag
+AIRFLOW_CTX_TASK_ID=detect_data_drift
+AIRFLOW_CTX_EXECUTION_DATE=2024-01-24T15:35:17.555367+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-01-24T15:35:17.555367+00:00
+[2024-01-24 15:40:30,262] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 207, in execute
+    branch = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitoring-dag.py", line 63, in _detect_data_drift
+    reference, data_logs = _load_files(data_logs_filename)
+  File "/opt/airflow/dags/monitoring-dag.py", line 40, in _load_files
+    data_logs = pd.read_csv(data_logs_filename)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: './data/data-drift/week1.csv'
+[2024-01-24 15:40:30,269] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=monitoring_dag, task_id=detect_data_drift, execution_date=20240124T153517, start_date=20240124T154030, end_date=20240124T154030
+[2024-01-24 15:40:30,280] {standard_task_runner.py:97} ERROR - Failed to execute job 65 for task detect_data_drift ([Errno 2] No such file or directory: './data/data-drift/week1.csv'; 1386)
+[2024-01-24 15:40:30,314] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-01-24 15:40:30,356] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

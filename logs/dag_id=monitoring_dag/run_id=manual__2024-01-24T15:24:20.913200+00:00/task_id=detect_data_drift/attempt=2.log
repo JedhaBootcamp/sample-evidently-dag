@@ -1,0 +1,36 @@
+[2024-01-24 15:25:26,053] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:24:20.913200+00:00 [queued]>
+[2024-01-24 15:25:26,061] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:24:20.913200+00:00 [queued]>
+[2024-01-24 15:25:26,061] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-24 15:25:26,061] {taskinstance.py:1357} INFO - Starting attempt 2 of 6
+[2024-01-24 15:25:26,062] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-24 15:25:26,071] {taskinstance.py:1377} INFO - Executing <Task(BranchPythonOperator): detect_data_drift> on 2024-01-24 15:24:20.913200+00:00
+[2024-01-24 15:25:26,077] {standard_task_runner.py:52} INFO - Started process 518 to run task
+[2024-01-24 15:25:26,081] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'monitoring_dag', 'detect_data_drift', 'manual__2024-01-24T15:24:20.913200+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/monitoring-dag.py', '--cfg-path', '/tmp/tmp0v49niao', '--error-file', '/tmp/tmpaj55p33t']
+[2024-01-24 15:25:26,082] {standard_task_runner.py:80} INFO - Job 19: Subtask detect_data_drift
+[2024-01-24 15:25:26,124] {task_command.py:370} INFO - Running <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:24:20.913200+00:00 [running]> on host 7aa566990013
+[2024-01-24 15:25:26,171] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=monitoring_dag
+AIRFLOW_CTX_TASK_ID=detect_data_drift
+AIRFLOW_CTX_EXECUTION_DATE=2024-01-24T15:24:20.913200+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-01-24T15:24:20.913200+00:00
+[2024-01-24 15:25:26,187] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 207, in execute
+    branch = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitoring-dag.py", line 59, in _detect_data_drift
+    reference, data_logs, data_columns = _load_files(data_logs_filename)
+  File "/opt/airflow/dags/monitoring-dag.py", line 39, in _load_files
+    return reference, data_logs, data_columns
+NameError: name 'data_columns' is not defined
+[2024-01-24 15:25:26,193] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=monitoring_dag, task_id=detect_data_drift, execution_date=20240124T152420, start_date=20240124T152526, end_date=20240124T152526
+[2024-01-24 15:25:26,201] {standard_task_runner.py:97} ERROR - Failed to execute job 19 for task detect_data_drift (name 'data_columns' is not defined; 518)
+[2024-01-24 15:25:26,213] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-01-24 15:25:26,243] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

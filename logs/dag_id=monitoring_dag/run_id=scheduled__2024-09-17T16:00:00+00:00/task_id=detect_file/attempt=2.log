@@ -1,0 +1,24 @@
+[2024-09-19T08:12:28.828+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-09-19T08:12:28.833+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monitoring_dag.detect_file scheduled__2024-09-17T16:00:00+00:00 [queued]>
+[2024-09-19T08:12:28.836+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monitoring_dag.detect_file scheduled__2024-09-17T16:00:00+00:00 [queued]>
+[2024-09-19T08:12:28.836+0000] {taskinstance.py:2865} INFO - Starting attempt 2 of 1
+[2024-09-19T08:12:28.840+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonSensor): detect_file> on 2024-09-17 16:00:00+00:00
+[2024-09-19T08:12:28.843+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=420) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-19T08:12:28.844+0000] {standard_task_runner.py:72} INFO - Started process 435 to run task
+[2024-09-19T08:12:28.844+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'monitoring_dag', 'detect_file', 'scheduled__2024-09-17T16:00:00+00:00', '--job-id', '51', '--raw', '--subdir', 'DAGS_FOLDER/monitoring-dag.py', '--cfg-path', '/tmp/tmpkj1b4ddh']
+[2024-09-19T08:12:28.845+0000] {standard_task_runner.py:105} INFO - Job 51: Subtask detect_file
+[2024-09-19T08:12:28.861+0000] {task_command.py:467} INFO - Running <TaskInstance: monitoring_dag.detect_file scheduled__2024-09-17T16:00:00+00:00 [running]> on host 99b9fc076387
+[2024-09-19T08:12:28.884+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monitoring_dag' AIRFLOW_CTX_TASK_ID='detect_file' AIRFLOW_CTX_EXECUTION_DATE='2024-09-17T16:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-09-17T16:00:00+00:00'
+[2024-09-19T08:12:28.885+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-09-19T08:12:28.890+0000] {python.py:75} INFO - Poking callable: <function _detect_file at 0xffff92672ca0>
+[2024-09-19T08:12:28.890+0000] {logging_mixin.py:190} INFO - HELLO WORLD
+[2024-09-19T08:12:28.890+0000] {logging_mixin.py:190} INFO - CURRENT DATA LOG LIST: ['/opt/***/dags/data/data-drift/week1.csv']
+[2024-09-19T08:12:28.891+0000] {logging_mixin.py:190} INFO - CURRENT DIRECTORY: /opt/***
+[2024-09-19T08:12:28.895+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2024-09-19T08:12:28.898+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-09-19T08:12:28.898+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=monitoring_dag, task_id=detect_file, run_id=scheduled__2024-09-17T16:00:00+00:00, execution_date=20240917T160000, start_date=20240919T081228, end_date=20240919T081228
+[2024-09-19T08:12:28.943+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-09-19T08:12:28.958+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-09-19T08:12:28.958+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

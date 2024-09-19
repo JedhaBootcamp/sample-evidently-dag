@@ -1,0 +1,62 @@
+[2024-01-24 15:26:39,322] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:25:33.618086+00:00 [queued]>
+[2024-01-24 15:26:39,330] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:25:33.618086+00:00 [queued]>
+[2024-01-24 15:26:39,331] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-24 15:26:39,331] {taskinstance.py:1357} INFO - Starting attempt 2 of 6
+[2024-01-24 15:26:39,331] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-24 15:26:39,340] {taskinstance.py:1377} INFO - Executing <Task(BranchPythonOperator): detect_data_drift> on 2024-01-24 15:25:33.618086+00:00
+[2024-01-24 15:26:39,345] {standard_task_runner.py:52} INFO - Started process 598 to run task
+[2024-01-24 15:26:39,349] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'monitoring_dag', 'detect_data_drift', 'manual__2024-01-24T15:25:33.618086+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/monitoring-dag.py', '--cfg-path', '/tmp/tmps6rpdins', '--error-file', '/tmp/tmp6z7fm7bg']
+[2024-01-24 15:26:39,350] {standard_task_runner.py:80} INFO - Job 25: Subtask detect_data_drift
+[2024-01-24 15:26:39,388] {task_command.py:370} INFO - Running <TaskInstance: monitoring_dag.detect_data_drift manual__2024-01-24T15:25:33.618086+00:00 [running]> on host 7aa566990013
+[2024-01-24 15:26:39,434] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=monitoring_dag
+AIRFLOW_CTX_TASK_ID=detect_data_drift
+AIRFLOW_CTX_EXECUTION_DATE=2024-01-24T15:25:33.618086+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-01-24T15:25:33.618086+00:00
+[2024-01-24 15:26:39,466] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 207, in execute
+    branch = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitoring-dag.py", line 66, in _detect_data_drift
+    report = data_drift_report.json()
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/suite/base_suite.py", line 249, in json
+    self._get_json_content(include_render=include_render, include=include, exclude=exclude, **kwargs),
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/suite/base_suite.py", line 451, in _get_json_content
+    res = super()._get_json_content(include_render, include, exclude, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/suite/base_suite.py", line 238, in _get_json_content
+    result.update(self.as_dict(include_render=include_render, include=include, exclude=exclude, **kwargs))
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/report/report.py", line 168, in as_dict
+    exclude=exclude.get(metric_id),
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/renderers/base_renderer.py", line 47, in render_json
+    result = obj.get_result()
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/base_metric.py", line 223, in get_result
+    raise result.exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/calculation_engine/engine.py", line 42, in execute_metrics
+    calculations[metric] = calculation.calculate(context, converted_data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/calculation_engine/python_engine.py", line 88, in calculate
+    return self.metric.calculate(data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/metrics/data_drift/dataset_drift_metric.py", line 97, in calculate
+    agg_data=True,
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/calculations/data_drift.py", line 448, in get_drift_for_columns
+    agg_data=agg_data,
+  File "/home/airflow/.local/lib/python3.7/site-packages/evidently/calculations/data_drift.py", line 175, in get_one_column_drift
+    current_correlations = current_data[numeric_columns].corr()[column_name].to_dict()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3464, in __getitem__
+    indexer = self.loc._get_listlike_indexer(key, axis=1)[1]
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/indexing.py", line 1314, in _get_listlike_indexer
+    self._validate_read_indexer(keyarr, indexer, axis)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/indexing.py", line 1377, in _validate_read_indexer
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['count'] not in index"
+[2024-01-24 15:26:39,475] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=monitoring_dag, task_id=detect_data_drift, execution_date=20240124T152533, start_date=20240124T152639, end_date=20240124T152639
+[2024-01-24 15:26:39,482] {standard_task_runner.py:97} ERROR - Failed to execute job 25 for task detect_data_drift ("['count'] not in index"; 598)
+[2024-01-24 15:26:39,521] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-01-24 15:26:39,558] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
